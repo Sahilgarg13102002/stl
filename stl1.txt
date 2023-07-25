@@ -1,0 +1,237 @@
+pairs implementation with code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	pair<int,int>pi = {1,2};
+	cout<<pi.first<<" "<<pi.second<<endl;
+	pair<int, pair<int,int>>p = {4,{5,6}};
+	cout<<p.first<<" "<<p.second.first<<" "<<p.second.second<<endl;
+	pair<int,int>arr[] = {{1,2},{3,4},{5,6}};
+	cout<<arr[1].first<<endl;
+	return 0;
+	
+}
+
+complete vector code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	// first way to initilize
+	vector<int>v;
+	v.push_back(1);
+	v.emplace_back(2);
+	
+	// second way to initilize
+	vector<pair<int,int>>v1;
+	v1.push_back({1,2});
+	v1.emplace_back(2,3);   // this is faster
+	//third way to initilize
+	vector<int>v7(5,100);
+	
+	// --> it give 0 five times
+	 vector<int>v3(5);
+	 
+	//  copy one vector into another
+	vector<int>v5(5,20);
+	vector<int>v6(v5);
+	
+	
+	// access the data in vector
+	vector<int>v4 = {10,20,30,40,50};
+	vector<int>::iterator it = v4.begin();
+	it++;
+	cout<<*(it)<<endl;
+	it = it+2;
+	cout<<*(it)<<endl;
+	cout<<v4.at(0)<<endl;    //--> it give 10
+	cout<<v4.back()<<endl;    //  --> it give 50
+	
+	//  1st methpd totraversing whole vector
+	for(vector<int>::iterator it = v4.begin();it!=v4.end();it++){
+		cout<<*(it)<<endl;
+	}
+	
+	// 2nd method to traversing vector
+	for(auto it = v4.begin();it!=v4.end();it++){
+		cout<<*(it)<<endl;
+	}
+	
+	// 3rd is foreach loop
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	
+	// delete the data in the vector
+	v4.erase(v4.begin()+1);
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	v4.erase(v4.begin()+2,v4.begin()+4);
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	
+	// insert data in the vector
+	v4.insert(v4.begin(),-10);
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	v4.insert(v4.begin()+1,2,100);
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	
+	// copy the vector
+	vector<int>copy(2,500);
+	v4.insert(v4.begin(),copy.begin(),copy.end());
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	
+	// size of vector
+	cout<<v4.size()<<endl;
+	// pop the element in vector
+	v4.pop_back();
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	
+	// swap the vector
+	
+	vector<int>p = {1,2};
+	vector<int>q = {3,4};
+	p.swap(q);
+	
+	v4.clear();
+	for(auto it:v4){
+		cout<<it<<endl;
+	}
+	cout<<v4.empty()<<endl;
+	
+	
+	return 0;
+}
+
+list in c++
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	list<int>li;
+	li.push_back(1);
+	li.emplace_back(2);
+	li.push_front(3);
+	li.emplace_front(4);
+	li.pop_back();
+	li.pop_front();
+	
+	list<int>::iterator it = li.begin();
+	for(auto it:li){
+		cout<<it<<endl;
+	}
+	
+	
+	
+	return 0;
+}
+
+deque:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	deque<int>li;
+	li.push_back(1);
+	li.emplace_back(2);
+	li.push_front(3);
+	li.emplace_front(4);
+	li.pop_back();
+	li.pop_front();
+	//cout<<li.top()<<endl;
+	
+	deque<int>::iterator it = li.begin();
+	for(auto it:li){
+		cout<<it<<endl;
+	}
+	return 0;
+}
+stack:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	stack<int>st;
+	st.push(1);
+	st.push(2);
+	st.emplace(3);
+	st.emplace(4);
+	st.pop();
+	stack<int>st1 = st;
+	while(!st1.empty()){
+		cout<<st1.top()<<endl;
+		st1.pop();
+	}
+	cout<<st.top()<<endl;
+	
+	
+	
+	return 0;
+}
+queue:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	queue<int>q;
+	q.push(1);
+	q.push(2);
+	q.emplace(3);
+	q.emplace(4);
+	q.pop();
+	queue<int>q1 = q;
+	while(!q1.empty()){
+		cout<<q1.front()<<endl;
+		q1.pop();
+	}	
+	return 0;
+}
+priority queue:
+code:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	// for max heap
+	
+	priority_queue<int>pq;
+	pq.push(5);
+	pq.push(2);
+	pq.emplace(10);
+	pq.emplace(3);
+	pq.pop();
+	priority_queue<int>q = pq;
+	while(!q.empty()){
+		cout<<q.top()<<endl;
+		q.pop();
+	}
+	
+	// for min heap
+	 priority_queue<int,vector<int>,greater<int>>pq1;
+	 priority_queue<int>pq1;
+	pq1.push(5);
+	pq1.push(2);
+	pq1.emplace(10);
+	pq1.emplace(3);
+	pq1.pop();
+	 priority_queue<int,vector<int>,greater<int>>p1 = pq1;
+	while(!q1.empty()){
+		cout<<q1.top()<<endl;
+		q1.pop();
+	} 
+	return 0;
+}

@@ -1,0 +1,107 @@
+set:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	set<int>st;
+	st.insert(1);
+	st.insert(2);
+	st.emplace(2);
+	st.insert(4);
+	st.insert(3);
+	// whole set traverse
+	for(auto it:st){
+		cout<<it<<endl;
+	}
+	// particular number
+	
+	auto it = st.find(3);
+	cout<<*(it)<<endl;
+	//auto it = st.find(6);
+	//cout<<*(it)<<endl;
+	
+	// particular number erase
+	auto it1 = st.find(3);
+	st.erase(it1);
+	auto it2 = st.find(2);
+    auto it3 = st.find(4);
+    st.erase(it2,it3);	
+	return 0;
+}
+
+multiset:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+	multiset<int>ms;
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    // ms.erase(1);  // delete all duplicate data;
+    
+    
+    ms.erase(ms.find(1),ms.find(1)+2);
+    for(auto it:ms){
+        cout<<it<<endl;
+    }		
+	return 0;
+}
+map:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+map<int ,int>mpp;
+mpp[1] = 2;
+mpp.insert({3,1});
+mpp.emplace(2,4);
+for(auto it:mpp){
+    cout<<it.first<<" "<<it.second<<endl;
+}
+
+auto it = mpp.find(3);
+cout<<*(it)<<endl;
+	
+	return 0;
+}
+
+multimap are those in which we kept duplicate key but data in sorted manner
+unorederd map in which we kept duplicate keys as well as unsorted data.
+some algorithm:
+code:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	// some algorithm in stl
+    int arr[5] = {2,5,3,8,1};
+    sort(arr,arr+5);
+    for(int i=0;i<5;i++){
+        cout<<arr[i]<<endl;
+    }
+    
+    // if in vector form
+    vector<int>a = {2,5,6,9,8,1};
+    sort(a.begin(),a.end());
+    for(auto it:a){
+        cout<<it<<endl;
+    }
+    
+    // sort in particular place
+    int arr1[] = {1,3,5,2};
+    sort(arr1+2,arr1+4);
+    for(int i=0;i<4;i++){
+        cout<<arr1[i]<<endl;
+    }
+    
+// sort in descending order
+sort(arr1,arr1+4,greater<int>);
+for(int i=0;i<4;i++){
+        cout<<arr1[i]<<" ";
+    }	
+	return 0;
+}
